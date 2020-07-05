@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .first-div {
+      background: #eee;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="first-div">
+      <span>{{a.b.c}}</span>
+    </div>
+    <p>{{a.d}}</p>
+    <div>
+      {{destination}}
+      <input type="text" v-model="destination">
+    </div>
+  </div>
+  
+  <script src="./src/utils/index.js"></script>
+  <script src="./src/observe/watcher.js"></script>
+  <script src="./src/observe/dep.js"></script>
+  <script src="./src/observe/index.js"></script>
+  <script src="./src/vdom/vnode.js"></script>
+  <script src="./src/compiler/index.js"></script>
+  <script src="src/instance/proxy.js"></script>
+  <script src="./src/wVue.js"></script>
+  <script src="./src/instance/render.js"></script>
+  <script>
+    let app = null
+    window.onload = function() {
+      app = new wVue({
+        el: '#app',
+        data: {
+          a: {
+            b: {
+              c: 'go to somewhere'
+            },
+            d: 'far away from here'
+          },
+          destination: 'where ?'
+        },
+        // method: {
+        // },
+        mounted() {
+          console.log('is mounted')
+        },
+        created() {
+          console.log('is created')
+        }
+      })
+    }
+  </script>
+</body>
+</html>

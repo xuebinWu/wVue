@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div class="first-div">
+      <span>{{a.b.c}}</span>
+    </div>
+    <p>{{a.d}}</p>
+    <div>
+      {{destination}}
+      <input type="text" v-model="destination">
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    app = new Vue({
+      el: '#app',
+      data: {
+        a: {
+          b: {
+            c: 'go to somewhere'
+          },
+          d: 'far away from here'
+        },
+        destination: 'where ?'
+      },
+      // method: {
+      // },
+      mounted() {
+        console.log('is mounted')
+      },
+      created() {
+        console.log('is created')
+      }
+    })
+  </script>
+</body>
+</html>
